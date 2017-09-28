@@ -5,3 +5,11 @@
 
 - 主页
 ![](Alipay.Demo.PCPayment/image/1index.jpg)
+
+- 支付创建
+![](Alipay.Demo.PCPayment/image/2payorder.jpg)
+
+- 支付
+![](Alipay.Demo.PCPayment/image/3pay.jpg)
+
+![](Alipay.Demo.PCPayment/image/4pay.jpg)
