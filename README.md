@@ -4,12 +4,41 @@
 # 功能演示
 
 - 主页
+
 ![](Alipay.Demo.PCPayment/image/1index.jpg)
 
 - 支付创建
+
 ![](Alipay.Demo.PCPayment/image/2payorder.jpg)
 
 - 支付
+
 ![](Alipay.Demo.PCPayment/image/3pay.jpg)
 
+- 输入支付密码
+
 ![](Alipay.Demo.PCPayment/image/4pay.jpg)
+
+- 支付成功
+
+![](Alipay.Demo.PCPayment/image/5paysucess.jpg)
+
+- 支付成功同步回调
+
+![](Alipay.Demo.PCPayment/image/6paysucess.jpg)
+
+- 订单查询
+
+![](Alipay.Demo.PCPayment/image/7orderquery.jpg)
+
+- 退款
+
+![](Alipay.Demo.PCPayment/image/8refund.jpg)
+
+- 退款查询
+
+![](Alipay.Demo.PCPayment/image/9refundquery.jpg)
+
+- 订单关闭
+
+![](Alipay.Demo.PCPayment/image/10orderclose.jpg)
