@@ -42,3 +42,5 @@
 - 订单关闭
 
 ![](Alipay.Demo.PCPayment/image/10orderclose.jpg)
+
+异步通知已经实现了的，但是由于没有公网ip和花生壳等，没有测试，以后测试了加图
