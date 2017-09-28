@@ -21,11 +21,11 @@
 
 - 支付成功
 
-![](Alipay.Demo.PCPayment/image/5paysucess.jpg)
+![](Alipay.Demo.PCPayment/image/5paysuccess.jpg)
 
 - 支付成功同步回调
 
-![](Alipay.Demo.PCPayment/image/6paysucess.jpg)
+![](Alipay.Demo.PCPayment/image/6paysuccess.jpg)
 
 - 订单查询
 
