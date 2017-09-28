@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "订单关闭";
+}
+
+<h2>订单关闭</h2>
+
+<div class="row">
+    <div class="col-sm-12" s>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="tradeno" class="control-label col-sm-2">商户订单号：</label>
+                <div class="col-sm-10">
+                    <input type="text" name="tradeno" class="form-control" id="tradeno" value="" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="alipayTradeNo" class="control-label col-sm-2">支付宝交易号：</label>
+                <div class="col-sm-10">
+                    <input type="text" name="alipayTradeNo" class="form-control" id="alipayTradeNo" value="" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button class="btn btn-success btn-block" type="button" id="btnQuery" onclick="queryOrder()">查询</button>
+                    <p class="help-block text-center">商户订单号和支付宝交易号任意填一个均可。</p>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="col-sm-12" s>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="tradeno" class="control-label col-sm-2">执行结果：</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="20" id="queryResult"></textarea>
+                    <a href="http://json.cn" target="_blank">Json格式化</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+        function queryOrder() {
+            $.post("/Pay/OrderClose",
+                {
+                    tradeno: $("#tradeno").val(),
+                    alipayTradeNo: $("#alipayTradeNo").val()
+                },
+                function(data) {
+                    $("#queryResult").html(data);
+                });
+        }
+    </script>
+}
+

@@ -1,0 +1,23 @@
+﻿namespace Alipay.Demo.PCPayment
+{
+	public class Config
+	{
+		// 应用ID,您的APPID
+		public static string AppId = "2016082000290746";
+
+		// 支付宝网关
+		public static string Gatewayurl = "https://openapi.alipaydev.com/gateway.do";
+
+		// 商户私钥，您的原始格式RSA私钥
+		public static string PrivateKey = "MIIEogIBAAKCAQEAmCjHKo4xBdWqUSFxD1GFbFaLw8gTz66sYcuw1e12/NU+YehWnV/o9Y+Ea+mGlhvHyk3swsNjMl6XQwimJGdQuZg4kug5rLeyI6R4IcAbkpNer2LUTOIKDyyfj5kU4rkf7RSL0WdpdT0dn49XoZGrK2tftoNgDtlnBR7IOooBmABqtsxv3t+aH+1QzQA+JDbq690nAo5UAZRWc4DyxQYfDMqmO/2lGFoJ87hJMljUc4xdnKDOCurWZe6Pe4s5FxbC63dyHNT+4o7DjIV0Ml7YAcWdwWQQswE7iCMy1+b0P/qEK+n7hd0/UEzl+RxoGqB+ikRZry2CJ9aXdN4lrd1k7QIDAQABAoIBAETiwThM43jGwLK2Nx8+Qu9HR0M9g2qUo8oqk0ZmmWXhjLp6myvoTelOLh9Eu/+dWBgIq1WJa5FULZrVgZIdi/haJ9Kqe+Hr0CQ+w3xUIqd7PHSeg4rDEtbH1v0FyuTR9tg4YwxMivvezVh9Zqjo79taYxyX4ZcXaYJx6yhFbm9HnlPXFwBtQLEFzu7LwZ0M7BUQ/9ZElyM16t4/b8ZYFskGj8LWSyT/c7zp9Z2nWHrFXlMXOhUTMYdC7P4LH078JI6GmkimfkvG7kw9RBNYr5FJ0op+jOMdmhfJaZ5jfnKxuoydPNvPxz88ufA3IXK1V+53k4mHS1MXIdus1aMBMAECgYEAxaCvlUygNs9ORJKdSLC1JqbZ8fWVKtoXGnab+x8qTaA+b/kMutb8+mSceWkuEGXsh2XAspeeC/EPa8Dm04MywM72MmvaUD45LLdex9r9p2noKiilZ8/3G2rSIaVloSkFhIongYMW0TMm5tsWJNYeQ2DU1j7wtYStEhqHVVfLRgECgYEAxRoRyP24BLZlTtU5G7gYySLRboVnEozK/ctHhNwP/e+mn/ZxTbF9tCXzQRzNC3E66VA2OWexTf+yN/9Aw29Px2qQL5jzlOSWP6SLFgPIW8To5OH9OEYfQRRmOpAT15nCemQ9/F/iuL1J8u0TakTHKk3MnLWroWOnhQSewxWplu0CgYBdhetRtg9joLsjTFbOXYF8px0gmd1biBXC2jp6nocAcULa7nsNuEvDmvVJp3K7I+DJOmf0nDeY4x0vGvyhP8c24zozJkMMEkYwWR6raYD8Ruwtd0q/U/VWrjh+36y2lZkc3dxQN98GZTSVrzxNdl6f+CUAtoxm+kCE/rTouEFkAQKBgHv2c20XtZ6xIHI+RFacqGoIDfQWzsap6hlIukhjJ2OsT/2XP5d/o/GjVKSE+qjRpB2NJy1fe/H0eSAi15aS8XgYG2r0JW5lfeG1GQzVgDPHWjppr5qu74U80TbP2srkl53mYd3SaIOL+XBhjq5tZ13B5IhC8hjk1j0gtME5ZJnZAoGAaVaQUTkGlLap811FnJjIMBKBbpzrTtqZXfD6Ccer7XSWXcjdexj/PgrkbJa0lYVXwLuTp1vfk/tzNjjknVdzUEsIXPV15L6Z3D+DKoUEJXZSLqrEB1oj9XFvoy4LQHt5gIGti/bykjo5n3Uxpjr9J4wH9woeMdeZTXTx3Wuldj4=";
+
+		// 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
+		public static string AlipayPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6HuBRFDof7nGt7BufmgUp7/QZISCp3EX4t4ZB0tMIVrcy8OebqT3H9A+kkUbI3hxJzlFaF78LsL3VsMacqciz9hd9Fvf1jtoutz/V+rAFgE2v33jJTMlN1RprPzRI401m5cCzJkBv/XwzQ2h4P8SW8oK5IrSkIHL6rKVT3TyAkB0ghEmO6foaCHKgMBPP03oL52xxu+7+jU0Pk+EsgIIvfomo40Uw5gc4oUX2aXlOnYPpJ7E+3ebLyd2y1K7eq0eemKC13fr5UVT+qYINnZRk0rLfHC+3ek5tqaNROT5P+KRaOG8al/C0nj6dLCg76N5fSTdsQtwF6ZNzSceGn3IvwIDAQAB";
+
+		// 签名方式
+		public static string SignType = "RSA2";
+
+		// 编码格式
+		public static string CharSet = "UTF-8";
+	}
+}

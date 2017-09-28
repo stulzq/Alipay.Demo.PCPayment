@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>支付宝电脑网站支付接口2.0-ASP.NET Core 2.0</title>
+</head>
+<link href="~/css/home.css" rel="stylesheet" />
+
+<body>
+    <form id="form1" runat="server">
+        <header class="am-header">
+            <h1>支付宝电脑网站支付2.0接口-ASP.NET Core 2.0</h1>
+        </header>
+        <div>
+            <div id="main">
+                <div id="body" style="clear:left">
+                    <dl class="content">
+                        <dt></dt>
+                        <dd id="btn-dd">
+                            <span class="new-btn-login-sp">
+                                <button class="new-btn-login" type="button" style="text-align:center;" onclick="window.open('/Pay')">电脑网站2.0支付(接口名：alipay.trade.page.pay)</button>
+                            </span>
+                        </dd>
+                        <dt></dt>
+                        <dd id="btn-dd">
+                            <span class="new-btn-login-sp">
+                                <button class="new-btn-login" type="button" style="text-align:center;" onclick="window.location.href='/Pay/Query'">电脑网站2.0订单查询 (接口名：alipay.trade.query)</button>
+                            </span>
+                        </dd>
+                        <dt></dt>
+                        <dd id="btn-dd">
+                            <span class="new-btn-login-sp">
+                                <button class="new-btn-login" type="button" style="text-align:center;" onclick="window.location.href='/Pay/Refund'">电脑网站2.0订单退款  (接口名：alipay.trade.refund)</button>
+                            </span>
+                        </dd>
+                        <dt></dt>
+                        <dd id="btn-dd">
+                            <span class="new-btn-login-sp">
+                                <button class="new-btn-login" type="button" style="text-align:center;" onclick="window.location.href='/Pay/RefundQuery'">电脑网站2.0订单退款查询(接口名：alipay.trade.fastpay.refund.query)</button>
+                            </span>
+                        </dd>
+                        <dt></dt>
+                        <dd id="btn-dd">
+                            <span class="new-btn-login-sp">
+                                <button class="new-btn-login" type="button" style="text-align:center;" onclick="window.location.href='/Pay/OrderClose'">电脑网站2.0订单关闭(接口名：alipay.trade.close)</button>
+                            </span>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="foot">
+                    <ul class="foot-ul">
+                        <li>
+                            Copyright 2017 晓晨
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

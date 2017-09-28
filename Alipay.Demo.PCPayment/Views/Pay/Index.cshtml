@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "电脑网站2.0支付";
+}
+<h2>电脑网站2.0支付</h2>
+<div class="row">
+    <div class="col-sm-12" s>
+        <form  asp-action="PayRequest" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="tradeno" class="control-label col-sm-2">商户订单号：</label>
+                <div class="col-sm-10">
+                    <input type="text" name="tradeno" class="form-control" id="tradeno" value=""/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject" class="control-label col-sm-2">订单名称：</label>
+                <div class="col-sm-10">
+                    <input type="text" name="subject" class="form-control" id="subject" value="一只橘猫" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="totalAmout" class="control-label col-sm-2">付款金额：</label>
+                <div class="col-sm-10">
+                    <input type="number" min="0.01" name="totalAmout" class="form-control" id="totalAmout" value="0.01" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="itemBody" class="control-label col-sm-2">商品描述：</label>
+                <div class="col-sm-10">
+                    <input type="text"  name="itemBody" class="form-control" id="itemBody" value="胖胖的橘猫" />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button class="btn btn-success btn-block">付款</button>
+                    <p class="help-block text-center">如果您点击“付款”按钮，即表示您同意该次的执行操作。</p>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+<script>
+    function GetDateNow() {
+        var vNow = new Date();
+        var sNow = "";
+        sNow += String(vNow.getFullYear());
+        sNow += String(vNow.getMonth() + 1);
+        sNow += String(vNow.getDate());
+        sNow += String(vNow.getHours());
+        sNow += String(vNow.getMinutes());
+        sNow += String(vNow.getSeconds());
+        sNow += String(vNow.getMilliseconds());
+        document.getElementById("tradeno").value =  sNow;
+    }
+    GetDateNow();
+</script>
+
