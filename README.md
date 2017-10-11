@@ -44,3 +44,34 @@
 ![](Alipay.Demo.PCPayment/image/10orderclose.jpg)
 
 异步通知已经实现了的，但是由于没有公网ip和花生壳等，没有测试，以后测试了加图
+
+# 配置
+
+配置都在`Config.cs`里面
+
+```csharp
+public class Config
+{
+	// 应用ID,您的APPID
+	public static string AppId = "";
+
+	// 支付宝网关
+	public static string Gatewayurl = "https://openapi.alipaydev.com/gateway.do";
+
+	// 商户私钥，您的原始格式RSA私钥
+	public static string PrivateKey = "";
+
+	// 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
+	public static string AlipayPublicKey = "";
+
+	// 签名方式
+	public static string SignType = "RSA2";
+
+	// 编码格式
+	public static string CharSet = "UTF-8";
+}
+```
+
+公钥、私钥直接填写**字符串**
+
+如果支付接口没用申请下来，可以使用支付宝沙箱来测试。
