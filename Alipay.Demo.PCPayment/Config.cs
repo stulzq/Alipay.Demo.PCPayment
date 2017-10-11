@@ -5,6 +5,11 @@
 		// 应用ID,您的APPID
 		public static string AppId = "";
 
+		/// <summary>
+		/// 合作商户uid
+		/// </summary>
+		public static string Uid = "";
+
 		// 支付宝网关
 		public static string Gatewayurl = "https://openapi.alipaydev.com/gateway.do";
 

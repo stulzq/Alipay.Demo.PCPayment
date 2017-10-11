@@ -31,11 +31,42 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">首页</a></li>
-                    <li><a asp-area="" asp-controller="Pay" asp-action="Index">支付</a></li>
-                    <li><a asp-area="" asp-controller="Pay" asp-action="Query">订单查询</a></li>
-                    <li><a asp-area="" asp-controller="Pay" asp-action="Refund">退款</a></li>
-                    <li><a asp-area="" asp-controller="Pay" asp-action="RefundQuery">退款查询</a></li>
-                    <li><a asp-area="" asp-controller="Pay" asp-action="OrderClose">订单关闭</a></li>
+                    <li><a asp-area="" asp-controller="Pay" asp-action="Index">PC支付</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            当面付
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="alert('开发者，敬请期待');">条码支付</a></li>
+                            <li><a asp-controller="FTFPay" asp-action="Scan">扫码支付</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            订单操作
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="Pay" asp-action="Query">订单查询</a></li>
+                            <li><a asp-area="" asp-controller="Pay" asp-action="OrderClose">订单关闭</a></li>
+                        </ul>
+                    </li>
+
+                    
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            退款
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="Pay" asp-action="Refund">订单退款</a></li>
+                            <li><a asp-area="" asp-controller="Pay" asp-action="RefundQuery">查询退款</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -52,20 +52,11 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    // 将业务model载入到request
 		    request.SetBizModel(model);
 
-		    AlipayTradePagePayResponse response = null;
-		    try
-		    {
-			    
-			    response = client.SdkExecute(request);
-			    Console.WriteLine($"订单支付发起成功，订单号：{tradeno}");
-			    Response.Redirect(Config.Gatewayurl+"?"+response.Body);
-
-		    }
-		    catch (Exception exp)
-		    {
-			    throw exp;
-		    }
-	    }
+			var response = client.SdkExecute(request);
+		    Console.WriteLine($"订单支付发起成功，订单号：{tradeno}");
+			//跳转支付宝支付
+		    Response.Redirect(Config.Gatewayurl + "?" + response.Body);
+		}
 
 	    #endregion
 
@@ -209,7 +200,16 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    return View();
 	    }
 
-	    [HttpPost]
+		/// <summary>
+		/// 订单退款
+		/// </summary>
+		/// <param name="tradeno">商户订单号</param>
+		/// <param name="alipayTradeNo">支付宝交易号</param>
+		/// <param name="refundAmount">退款金额</param>
+		/// <param name="refundReason">退款原因</param>
+		/// <param name="refundNo">退款单号</param>
+		/// <returns></returns>
+		[HttpPost]
 	    public JsonResult Refund(string tradeno,string alipayTradeNo,string refundAmount,string refundReason,string refundNo)
 	    {
 		    DefaultAopClient client = new DefaultAopClient(Config.Gatewayurl, Config.AppId, Config.PrivateKey, "json", "2.0",
@@ -242,7 +242,14 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    return View();
 	    }
 
-	    [HttpPost]
+		/// <summary>
+		/// 退款查询
+		/// </summary>
+		/// <param name="tradeno">商户订单号</param>
+		/// <param name="alipayTradeNo">支付宝交易号</param>
+		/// <param name="refundNo">退款单号</param>
+		/// <returns></returns>
+		[HttpPost]
 	    public JsonResult RefundQuery(string tradeno,string alipayTradeNo,string refundNo)
 	    {
 		    DefaultAopClient client = new DefaultAopClient(Config.Gatewayurl, Config.AppId, Config.PrivateKey, "json", "2.0",
@@ -274,6 +281,12 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    return View();
 	    }
 
+		/// <summary>
+		/// 关闭订单
+		/// </summary>
+		/// <param name="tradeno">商户订单号</param>
+		/// <param name="alipayTradeNo">支付宝交易号</param>
+		/// <returns></returns>
 	    [HttpPost]
 	    public JsonResult OrderClose(string tradeno, string alipayTradeNo)
 	    {
