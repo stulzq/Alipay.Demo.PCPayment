@@ -9,7 +9,7 @@
 
 # 功能演示
 
-- 2017-10-11新增当面付
+- 2017-10-11新增扫码支付
 
 ![](Alipay.Demo.PCPayment/image/scancode.gif)
 
