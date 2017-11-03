@@ -3,6 +3,8 @@
 
 # 更新日志
 
+- 2017-11-3 使用AopSdk For ASP.NET Core 组件
+
 - 2017-10-30 修复在Linux上无法使用的BUG
 
 # 说明文档
