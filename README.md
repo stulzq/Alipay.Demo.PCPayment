@@ -1,6 +1,10 @@
 # Alipay.Demo.PCPayment
 支付宝PC网站支付Demo，实现支付、支付同步回调、支付异步通知、订单查询、退款、退款查询、订单关闭功能。采用支付宝服务端SDK：[Alipay.AopSdk.Core](https://github.com/stulzq/Alipay.AopSdk.Core "Alipay.AopSdk.Core")，使用ASP.NET Core MVC 2.0。
 
+# 更新日志
+
+- 2017-10-30 修复在Linux上无法使用的BUG
+
 # 说明文档
 
 - [ASP.NET Core 2.0 使用支付宝PC网站支付](http://www.cnblogs.com/stulzq/p/7606164.html "ASP.NET Core 2.0 使用支付宝PC网站支付")
