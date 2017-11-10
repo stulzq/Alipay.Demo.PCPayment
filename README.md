@@ -62,27 +62,22 @@
 配置都在`Config.cs`里面
 
 ```csharp
-public class Config
+public void ConfigureServices(IServiceCollection services)
 {
-	// 应用ID,您的APPID
-	public static string AppId = "";
-
-	// 支付宝网关
-	public static string Gatewayurl = "https://openapi.alipaydev.com/gateway.do";
-
-	// 商户私钥，您的原始格式RSA私钥
-	public static string PrivateKey = "";
-
-	// 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
-	public static string AlipayPublicKey = "";
-
-	// 签名方式
-	public static string SignType = "RSA2";
-
-	// 编码格式
-	public static string CharSet = "UTF-8";
+    services.AddAlipay(options =>
+	        {
+		        options.AlipayPublicKey = "支付宝公钥";
+		        options.AppId = "应用ID";
+		        options.CharSet = "密钥编码";
+		        options.Gatewayurl = "支付网关";
+		        options.PrivateKey = "商家私钥";
+		        options.SignType = "签名方式 RSA/RSA2";
+		        options.Uid = "商户ID";
+	        });
 }
 ```
+
+移步：https://github.com/stulzq/Alipay.AopSdk.Core 查看详细配置
 
 公钥、私钥直接填写**字符串**
 
