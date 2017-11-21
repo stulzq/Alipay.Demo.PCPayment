@@ -59,8 +59,6 @@
 
 # 配置
 
-配置都在`Config.cs`里面
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
