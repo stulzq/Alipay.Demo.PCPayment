@@ -19,6 +19,11 @@ namespace Alipay.Demo.PCPayment
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(
+                    (Action<WebHostBuilderContext, IConfigurationBuilder>) ((hostingContext, config) =>
+                        {
+                            config.AddJsonFile("alipay.json");
+                        }))
                 .UseStartup<Startup>()
                 .Build();
     }

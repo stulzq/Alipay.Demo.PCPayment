@@ -24,18 +24,17 @@ namespace Alipay.Demo.PCPayment
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //配置alipay服务
+            ConfigureAlipay(services);
             services.AddMvc();
-			Console.WriteLine(Configuration["Alipay:AlipayPublicKey"]);
-	        services.AddAlipay(options =>
-	        {
-		        options.AlipayPublicKey = Configuration["Alipay:AlipayPublicKey"];
-		        options.AppId = Configuration["Alipay:AppId"];
-		        options.CharSet = Configuration["Alipay:CharSet"];
-		        options.Gatewayurl = Configuration["Alipay:Gatewayurl"];
-		        options.PrivateKey = Configuration["Alipay:PrivateKey"];
-		        options.SignType = Configuration["Alipay:SignType"];
-		        options.Uid = Configuration["Alipay:Uid"];
-	        }).AddAlipayF2F();
+        }
+
+        private void ConfigureAlipay(IServiceCollection services)
+        {
+            var alipayOptions = Configuration.GetSection("Alipay").Get<AlipayOptions>();
+            //检查RSA私钥
+            AlipayConfigChecker.Check(alipayOptions.SignType, alipayOptions.PrivateKey);
+            services.AddAlipay(options => Configuration.GetSection("Alipay").Get<AlipayOptions>()).AddAlipayF2F();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,5 +59,7 @@ namespace Alipay.Demo.PCPayment
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+        
     }
 }
