@@ -1,13 +1,35 @@
 # Alipay.Demo.PCPayment
+
 支付宝PC网站支付Demo，实现支付、支付同步回调、支付异步通知、订单查询、退款、退款查询、订单关闭功能。采用支付宝服务端SDK：[Alipay.AopSdk.Core](https://github.com/stulzq/Alipay.AopSdk.Core "Alipay.AopSdk.Core")，使用ASP.NET Core MVC 2.0。
 
-# 更新日志
+## 一.运行
 
-- 2017-11-3 使用AopSdk For ASP.NET Core 组件
+>配置的 公钥、私钥 直接填写**字符串**。如果支付接口没用申请下来，可以使用支付宝沙箱来测试。
 
-- 2017-10-30 修复在Linux上无法使用的BUG
+打开`alipay.json`，按照字段说明写入信息：
 
-# 说明文档
+````json
+"Alipay": {
+    "AlipayPublicKey": "",
+    "AppId": "",
+    "CharSet": "UTF-8",
+    "Gatewayurl": "https://openapi.alipaydev.com/gateway.do",
+    "PrivateKey": "",
+    "SignType": "RSA2",
+    "Uid": ""
+  }
+````
+- AlipayPublicKey：支付宝公钥。由支付宝提供，可到后台获取。
+- AppId：应用ID。由支付宝提供，可到后台获取。
+- CharSet：密钥编码，一般为 UTF-8
+- Gatewayurl：支付网关url。
+- PrivateKey：商户私钥，由我们自己生成。格式为pkcs1,长度2048或者1024，推荐2048。
+- SignType：签名类型，2048长度密钥请使用`RSA2`，1024使用`RSA`
+- Uid：商户ID。由支付宝提供，可到后台获取。
+
+配置好以后就可以直接启动了。
+
+## 二.使用帮助
 
 - [ASP.NET Core 2.0 使用支付宝PC网站支付](http://www.cnblogs.com/stulzq/p/7606164.html "ASP.NET Core 2.0 使用支付宝PC网站支付")
 
@@ -17,7 +39,7 @@
 
 >若遇到“私钥错误”请务必仔细确认自己的配置。
 
-# 功能演示
+## 三.功能演示
 
 - 2017-10-11新增扫码支付
 
@@ -61,26 +83,3 @@
 
 异步通知已经实现了的，但是由于没有公网ip和花生壳等，没有测试，以后测试了加图
 
-# 配置
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddAlipay(options =>
-	        {
-		        options.AlipayPublicKey = "支付宝公钥";
-		        options.AppId = "应用ID";
-		        options.CharSet = "密钥编码";
-		        options.Gatewayurl = "支付网关";
-		        options.PrivateKey = "商家私钥";
-		        options.SignType = "签名方式 RSA/RSA2";
-		        options.Uid = "商户ID";
-	        });
-}
-```
-
-移步：https://github.com/stulzq/Alipay.AopSdk.Core 查看详细配置
-
-公钥、私钥直接填写**字符串**
-
-如果支付接口没用申请下来，可以使用支付宝沙箱来测试。
