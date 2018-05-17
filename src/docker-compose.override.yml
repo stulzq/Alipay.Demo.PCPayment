@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  alipay.demo.pcpayment:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - 32775:"80"
