@@ -5,4 +5,5 @@ services:
     image: alipaydemopcpayment
     build:
       context: .
+      tag: v1
       dockerfile: Alipay.Demo.PCPayment/Dockerfile
