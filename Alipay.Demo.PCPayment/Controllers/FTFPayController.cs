@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Alipay.AopSdk.AspnetCore;
 using Alipay.AopSdk.F2FPay.AspnetCore;
 using Alipay.AopSdk.F2FPay.Business;
 using Alipay.AopSdk.F2FPay.Domain;
@@ -20,11 +21,13 @@ namespace Alipay.Demo.PCPayment.Controllers
     public class FTFPayController : Controller
     {
 	    private readonly IAlipayF2FService _alipayF2FService;
-		private readonly IHostingEnvironment _hostingEnvironment;
-		public FTFPayController(IHostingEnvironment hostingEnvironment,IAlipayF2FService alipayF2FService)
+        private readonly IAlipayService _alipayService;
+        private readonly IHostingEnvironment _hostingEnvironment;
+		public FTFPayController(IHostingEnvironment hostingEnvironment,IAlipayF2FService alipayF2FService,IAlipayService alipayService)
 		{
 			_hostingEnvironment = hostingEnvironment;
 			_alipayF2FService = alipayF2FService;
+		    _alipayService = alipayService;
 		}
         public IActionResult Index()
         {
@@ -106,7 +109,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 
 	        AlipayTradePrecreateContentBuilder builder = new AlipayTradePrecreateContentBuilder();
 	        //收款账号
-	        builder.seller_id = Config.Uid;
+	        builder.seller_id = _alipayService.Options.Uid;
 	        //订单编号
 	        builder.out_trade_no = outTradeNo;
 	        //订单总金额

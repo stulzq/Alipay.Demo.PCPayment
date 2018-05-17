@@ -88,7 +88,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 			var response = _alipayService.SdkExecute(request);
 		    Console.WriteLine($"订单支付发起成功，订单号：{tradeno}");
 			//跳转支付宝支付
-		    Response.Redirect(Config.Gatewayurl + "?" + response.Body);
+		    Response.Redirect(_alipayService.Options.Gatewayurl + "?" + response.Body);
 		}
 
 	    #endregion
