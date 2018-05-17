@@ -34,17 +34,7 @@ namespace Alipay.Demo.PCPayment
             var alipayOptions = Configuration.GetSection("Alipay").Get<AlipayOptions>();
             //检查RSA私钥
             AlipayConfigChecker.Check(alipayOptions.SignType, alipayOptions.PrivateKey);
-            services.AddAlipay(options =>
-            {
-                options.Uid = alipayOptions.Uid;
-                options.AlipayPublicKey = alipayOptions.AlipayPublicKey;
-                options.AppId = alipayOptions.AppId;
-                options.CharSet = alipayOptions.CharSet;
-                options.Gatewayurl = alipayOptions.Gatewayurl;
-                options.PrivateKey = alipayOptions.PrivateKey;
-                options.SignType = alipayOptions.SignType;
-
-            }).AddAlipayF2F();
+            services.AddAlipay(options =>options.SetOption(alipayOptions)).AddAlipayF2F();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
