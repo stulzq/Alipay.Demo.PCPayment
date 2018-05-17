@@ -18,7 +18,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 RUN apt-get update
-RUN apt-get install libgdiplus
+RUN apt-get install libgdiplus --assume-yes
 RUN cd /usr/lib
 RUN ln -s libgdiplus.so gdiplus.dll
 ENTRYPOINT ["dotnet", "Alipay.Demo.PCPayment.dll"]
