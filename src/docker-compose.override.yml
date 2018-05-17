@@ -5,4 +5,4 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     ports:
-      - 32775:"80"
+      - "32775:80"
