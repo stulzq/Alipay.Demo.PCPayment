@@ -3,7 +3,10 @@ version: '3'
 services:
   alipay.demo.pcpayment:
     image: alipaydemopcpayment:v1
+    tag: v1
     container_name: alipaydemopcpayment
     build:
+      tag: v1
+      container_name: alipaydemopcpayment
       context: .
       dockerfile: Alipay.Demo.PCPayment/Dockerfile
