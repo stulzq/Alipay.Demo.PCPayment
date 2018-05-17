@@ -51,43 +51,43 @@
 
 - 2017-10-11新增扫码支付
 
-![](Alipay.Demo.PCPayment/image/scancode.gif)
+![](assets/scancode.gif)
 
 - 支付创建
 
-![](Alipay.Demo.PCPayment/image/2payorder.jpg)
+![](assets/2payorder.jpg)
 
 - 支付
 
-![](Alipay.Demo.PCPayment/image/3pay.jpg)
+![](assets/3pay.jpg)
 
 - 输入支付密码
 
-![](Alipay.Demo.PCPayment/image/4pay.jpg)
+![](assets/4pay.jpg)
 
 - 支付成功
 
-![](Alipay.Demo.PCPayment/image/5paysuccess.jpg)
+![](assets/5paysuccess.jpg)
 
 - 支付成功同步回调
 
-![](Alipay.Demo.PCPayment/image/6paysuccess.jpg)
+![](assets/6paysuccess.jpg)
 
 - 订单查询
 
-![](Alipay.Demo.PCPayment/image/7orderquery.jpg)
+![](assets/7orderquery.jpg)
 
 - 退款
 
-![](Alipay.Demo.PCPayment/image/8refund.jpg)
+![](assets/8refund.jpg)
 
 - 退款查询
 
-![](Alipay.Demo.PCPayment/image/9refundquery.jpg)
+![](assets/9refundquery.jpg)
 
 - 订单关闭
 
-![](Alipay.Demo.PCPayment/image/10orderclose.jpg)
+![](assets/10orderclose.jpg)
 
 异步通知已经实现了的，但是由于没有公网ip和花生壳等，没有测试，以后测试了加图
 
