@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Alipay.AopSdk.AspnetCore;
+﻿using Alipay.AopSdk.AspnetCore;
 using Alipay.AopSdk.F2FPay.AspnetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 
 namespace Alipay.Demo.PCPayment
 {
@@ -43,7 +38,6 @@ namespace Alipay.Demo.PCPayment
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
             }
             else
             {
