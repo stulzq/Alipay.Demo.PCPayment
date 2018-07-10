@@ -4,6 +4,8 @@ echo Linux Docker build
 
 cd ../
 
+rm -rf src/publish
+
 cd src/Alipay.Demo.PCPayment
 
 dotnet publish -c Release -o ../publish
