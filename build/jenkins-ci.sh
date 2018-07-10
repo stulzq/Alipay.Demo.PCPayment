@@ -15,6 +15,7 @@ cd ../publish
 echo publish success
 
 docker build -t alipaydemo .
+docker rmi $(docker images -f "dangling=true" -q)
 
 docker stop alipaydemo
 docker rm alipaydemo
