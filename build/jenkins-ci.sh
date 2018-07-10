@@ -16,4 +16,6 @@ echo publish success
 
 docker build -t alipaydemo .
 
+docker stop alipaydemo
+docker rm alipaydemo
 docker run --name=alipaydemo -p 32775:80 -d  alipaydemo
