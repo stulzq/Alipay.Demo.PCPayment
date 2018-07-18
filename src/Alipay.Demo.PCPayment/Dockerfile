@@ -1,5 +1,6 @@
 FROM microsoft/dotnet:2.1-aspnetcore-runtime
 WORKDIR /app
+RUN sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/mirrors\.163\.com\/ubuntu\//g' /etc/apt/sources.list
 RUN apt-get update -y && apt-get install -y libgdiplus && apt-get install -y libc6-dev
 RUN ln -s /usr/lib/libgdiplus.so /usr/lib/gdiplus.dll
 COPY . .
