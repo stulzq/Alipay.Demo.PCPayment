@@ -1,4 +1,4 @@
-![Jenkins](https://img.shields.io/jenkins/s/https/ci.xcmaster.com/job/AlipayDemo.svg)
+![Jenkins](https://img.shields.io/jenkins/s/https/ci2.xcmaster.com/job/AlipayDemo.svg)
 
 # Alipay.Demo.PCPayment
 
