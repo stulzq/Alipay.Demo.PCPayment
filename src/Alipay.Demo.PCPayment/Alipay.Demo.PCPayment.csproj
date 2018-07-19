@@ -18,7 +18,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <AlipayConfigFiles Include="alipay.json;Dockerfile" />
+    <AlipayConfigFiles Include="alipay.json;Dockerfile;sources.list" />
   </ItemGroup>
 
   <Target Name="CopyConfigFiles" AfterTargets="BeforeBuild">
@@ -26,10 +26,7 @@
   </Target>
   
   <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
-    <ItemGroup>
-      <DocFile Include="alipay.json;Dockerfile" />
-    </ItemGroup>
-    <Copy SourceFiles="@(DocFile)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(AlipayConfigFiles)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="false" />
   </Target>
 
 
