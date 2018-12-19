@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Alipay.AopSdk.AspnetCore;
-using Alipay.AopSdk.F2FPay.AspnetCore;
 using Alipay.AopSdk.F2FPay.Business;
 using Alipay.AopSdk.F2FPay.Domain;
 using Alipay.AopSdk.F2FPay.Model;
@@ -20,15 +19,16 @@ namespace Alipay.Demo.PCPayment.Controllers
 {
     public class FTFPayController : Controller
     {
-	    private readonly IAlipayF2FService _alipayF2FService;
-        private readonly IAlipayService _alipayService;
         private readonly IHostingEnvironment _hostingEnvironment;
-		public FTFPayController(IHostingEnvironment hostingEnvironment,IAlipayF2FService alipayF2FService,IAlipayService alipayService)
-		{
-			_hostingEnvironment = hostingEnvironment;
-			_alipayF2FService = alipayF2FService;
-		    _alipayService = alipayService;
-		}
+        private readonly AlipayF2FService _alipayF2FService;
+        private readonly AlipayService _alipayService;
+
+        public FTFPayController(IHostingEnvironment hostingEnvironment,AlipayF2FService alipayF2FService,AlipayService alipayService)
+        {
+            _hostingEnvironment = hostingEnvironment;
+            _alipayF2FService = alipayF2FService;
+            _alipayService = alipayService;
+        }
         public IActionResult Index()
         {
             return View();
@@ -50,14 +50,14 @@ namespace Alipay.Demo.PCPayment.Controllers
 	    /// <param name="outTradeNo">订单号</param>
 	    /// <returns></returns>
 	    [HttpGet]
-        public IActionResult ScanCodeGen(string orderName, string orderAmount, string outTradeNo)
+        public async Task<IActionResult> ScanCodeGen(string orderName, string orderAmount, string outTradeNo)
         {
 
 	        AlipayTradePrecreateContentBuilder builder = BuildPrecreateContent(orderName,orderAmount,outTradeNo);
 
 	        //如果需要接收扫码支付异步通知，那么请把下面两行注释代替本行。
 	        //推荐使用轮询撤销机制，不推荐使用异步通知,避免单边账问题发生。
-	        AlipayF2FPrecreateResult precreateResult = _alipayF2FService.TradePrecreate(builder);
+	        AlipayF2FPrecreateResult precreateResult = await _alipayF2FService.TradePrecreateAsync(builder);
 		    //string notify_url = "http://10.5.21.14/Pay/Notify";  //商户接收异步通知的地址
 		    //AlipayF2FPrecreateResult precreateResult = serviceClient.tradePrecreate(builder, notify_url);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Alipay.AopSdk.AspnetCore;
 using Alipay.AopSdk.Core;
 using Alipay.AopSdk.Core.Domain;
@@ -12,9 +13,9 @@ namespace Alipay.Demo.PCPayment.Controllers
     public class PayController : Controller
     {
 		
-	    private readonly IAlipayService  _alipayService;
+	    private readonly AlipayService  _alipayService;
 
-		public PayController(IAlipayService alipayService)
+		public PayController(AlipayService alipayService)
 		{
 			_alipayService = alipayService;
 		}
@@ -145,7 +146,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 	    }
 
 	    [HttpPost]
-	    public JsonResult Query(string tradeno, string alipayTradeNo)
+	    public async Task<JsonResult> Query(string tradeno, string alipayTradeNo)
 	    {
 		    /*DefaultAopClient client = new DefaultAopClient(Config.Gatewayurl, Config.AppId, Config.PrivateKey, "json", "2.0",
 			    Config.SignType, Config.AlipayPublicKey, Config.CharSet, false);*/
@@ -158,7 +159,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();
 		    request.SetBizModel(model);
 
-		    var response = _alipayService.Execute(request);
+		    var response = await _alipayService.ExecuteAsync(request);
 		    return Json(response.Body);
 	    }
 
@@ -214,7 +215,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		/// <param name="refundNo">退款单号</param>
 		/// <returns></returns>
 		[HttpPost]
-	    public JsonResult Refund(string tradeno,string alipayTradeNo,string refundAmount,string refundReason,string refundNo)
+	    public async Task<JsonResult> Refund(string tradeno,string alipayTradeNo,string refundAmount,string refundReason,string refundNo)
 	    {
 		    /*DefaultAopClient client = new DefaultAopClient(Config.Gatewayurl, Config.AppId, Config.PrivateKey, "json", "2.0",
 			    Config.SignType, Config.AlipayPublicKey, Config.CharSet, false);*/
@@ -229,7 +230,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
 		    request.SetBizModel(model);
 
-		    var response = _alipayService.Execute(request);
+		    var response = await _alipayService.ExecuteAsync(request);
 		    return Json(response.Body);
 	    }
 
@@ -254,7 +255,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		/// <param name="refundNo">退款单号</param>
 		/// <returns></returns>
 		[HttpPost]
-	    public JsonResult RefundQuery(string tradeno,string alipayTradeNo,string refundNo)
+	    public async Task<JsonResult> RefundQuery(string tradeno,string alipayTradeNo,string refundNo)
 	    {
 		    /*DefaultAopClient client = new DefaultAopClient(Config.Gatewayurl, Config.AppId, Config.PrivateKey, "json", "2.0",
 			    Config.SignType, Config.AlipayPublicKey, Config.CharSet, false);*/
@@ -272,7 +273,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    AlipayTradeFastpayRefundQueryRequest request = new AlipayTradeFastpayRefundQueryRequest();
 		    request.SetBizModel(model);
 
-		    var response = _alipayService.Execute(request);
+		    var response = await _alipayService.ExecuteAsync(request);
 		    return Json(response.Body);
 	    }
 
@@ -292,7 +293,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		/// <param name="alipayTradeNo">支付宝交易号</param>
 		/// <returns></returns>
 	    [HttpPost]
-	    public JsonResult OrderClose(string tradeno, string alipayTradeNo)
+	    public async Task<JsonResult> OrderClose(string tradeno, string alipayTradeNo)
 	    {
 		    /*DefaultAopClient client = new DefaultAopClient(Config.Gatewayurl, Config.AppId, Config.PrivateKey, "json", "2.0",
 			    Config.SignType, Config.AlipayPublicKey, Config.CharSet, false);*/
@@ -304,7 +305,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    AlipayTradeCloseRequest request = new AlipayTradeCloseRequest();
 		    request.SetBizModel(model);
 
-		    var response = _alipayService.Execute(request);
+		    var response = await _alipayService.ExecuteAsync(request);
 		    return Json(response.Body);
 	    }
 
