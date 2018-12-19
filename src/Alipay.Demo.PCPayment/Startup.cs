@@ -1,5 +1,4 @@
 ﻿using Alipay.AopSdk.AspnetCore;
-using Alipay.AopSdk.F2FPay.AspnetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,9 +26,7 @@ namespace Alipay.Demo.PCPayment
         private void ConfigureAlipay(IServiceCollection services)
         {
             var alipayOptions = Configuration.GetSection("Alipay").Get<AlipayOptions>();
-            //检查RSA私钥
-            AlipayConfigChecker.Check(alipayOptions.SignType, alipayOptions.PrivateKey);
-            services.AddAlipay(options =>options.SetOption(alipayOptions)).AddAlipayF2F();
+            services.AddAlipay(options =>options.SetOption(alipayOptions));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
