@@ -88,6 +88,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 	        MemoryStream ms = new MemoryStream();
 	        bitmap.Save(ms, ImageFormat.Png);
 	        byte[] bytes = ms.GetBuffer();
+		ms.Close();
 	        return File(bytes, "image/png");
 	    }
 
